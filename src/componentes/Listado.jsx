@@ -13,6 +13,8 @@ export default function Listado ({personas}){
               apellidos={persona.apellidos}
               nombres={persona.nombres}
               alumno={persona.alumno}
+              curso={persona.curso}
+              divicion={persona.divicion}
             />
         )}
       </div>
