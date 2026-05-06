@@ -4,6 +4,7 @@ import './App.css';
 import { useState } from 'react';
 const personasDefault = [ 
   {
+    id: 1,
     documento: '11182998',
     nombres: 'Thiago',
     apellidos: 'Aguero',
@@ -12,6 +13,7 @@ const personasDefault = [
     divicion: '2'
   },
   {
+    id: 2,
     documento: '48354503',
     nombres: 'Kevin',
     apellidos: 'Ariaudo',
@@ -20,6 +22,7 @@ const personasDefault = [
     divicion: '2'
   },
   {
+    id: 3,
     documento: '2214112',
     nombres: 'Ezequiel',
     apellidos: 'Suarez',
@@ -40,6 +43,14 @@ export default function App (){
     nuevasPersonas.push(persona);
     setPersonas(nuevasPersonas);
   }
+
+  const eliminar = (persona_id) => {
+    const nuevasPersonas = personas.filter((persona) =>
+      persona.id != persona_id
+    );
+    console.log(nuevasPersonas)
+    setPersonas(nuevasPersonas)
+  }
   
   return (
     <div className='App'>
@@ -54,6 +65,7 @@ export default function App (){
         
         <Listado
           personas={personas}
+          eliminar={(persona_id)=> eliminar(persona_id)}
         />
         
       </div>
