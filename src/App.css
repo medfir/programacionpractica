@@ -1,36 +1,55 @@
-.App{
+.App {
     display: flex;
     flex: 1;
     flex-direction: column;
 }
-.contenedor{
-    display:flex;
+.Header {
+    display: flex;
+    height: 80px;
+    width: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+}
+.Header .Opcion {
+    padding: 5px 10px;
+    margin: 25px;
+    background-color: lightslategray;
+    border-radius: 15px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+.contenedor {
+    display: flex;
     flex-direction: row;
     flex: 1;
 }
-.formulario{
+.formulario {
     display: flex;
     flex-direction: column;
     flex: 1;
 }
-.formulario form{
+.formulario form {
     margin: 15px;
     border-radius: 15px;
     background-color: gray;
     padding: 15px 20px;
-    flex-direction: column; 
+    flex-direction: column;
 }
-.formulario input, select, button {
+.formulario input,
+select,
+button {
     margin: 10px 5px;
 }
-.listado{
+.listado {
     flex: 1;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
 }
-.tarjeta{
+.tarjeta {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,7 +58,7 @@
     margin: 20px;
     background-color: red;
     border-radius: 20px;
-    position:relative;
+    position: relative;
 }
 .eliminar {
     position: absolute;
@@ -47,7 +66,7 @@
     color: white;
     border-radius: 50%;
     padding: 3px 5px;
-    top:10px;
+    top: 10px;
     right: 10px;
     cursor: pointer;
 }

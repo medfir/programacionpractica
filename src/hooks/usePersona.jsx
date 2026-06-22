@@ -5,8 +5,8 @@ export default function usePersona() {
   const [apellidos, setApellidos] = useState("");
   const [nombres, setNombres] = useState("");
   const [rol, setRol] = useState("");
-  const [curso, setCurso] = useState("");
-  const [divicion, setDivicion] = useState("");
+  const [anio, setAnio] = useState("");
+  const [division, setDivision] = useState("");
 
   const cambiarDato = (campo, valor) => {
     const opciones = {
@@ -14,13 +14,10 @@ export default function usePersona() {
       apellidos: (valor) => setApellidos(valor),
       nombres: (valor) => setNombres(valor),
       rol: (valor) => setRol(valor),
-      curso: (valor) => setCurso(valor),
-      divicion: (valor) => setDivicion(valor),
+      anio: (valor) => setAnio(valor),
+      division: (valor) => setDivision(valor),
     };
     opciones[campo](valor);
-  }
-  return [
-    {documento,apellidos,nombres,rol,curso,divicion},
-    cambiarDato
-  ]
+  };
+  return [{ documento, apellidos, nombres, rol, anio, division }, cambiarDato];
 }

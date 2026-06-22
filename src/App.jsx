@@ -1,76 +1,46 @@
-import Listado from './componentes/Listado.jsx';
-import Formulario from './componentes/Formulario.jsx';
-import './App.css';
-import { useState } from 'react';
-const personasDefault = [ 
-  {
-    id: 1,
-    documento: '11182998',
-    nombres: 'Thiago',
-    apellidos: 'Aguero',
-    alumno: true,
-    curso: '7',
-    divicion: '2'
-  },
-  {
-    id: 2,
-    documento: '48354503',
-    nombres: 'Kevin',
-    apellidos: 'Ariaudo',
-    alumno: true,
-    curso: '7',
-    divicion: '2'
-  },
-  {
-    id: 3,
-    documento: '2214112',
-    nombres: 'Ezequiel',
-    apellidos: 'Suarez',
-    alumno: false,
-    curso: '7',
-    divicion: '2'
-  },
-  
-]
+import { Router, Route, Switch } from "wouter";
+import Listado from "./componentes/Listado.jsx";
+import Formulario from "./componentes/Formulario.jsx";
+import "./App.css";
+import { useState, useEffect } from "react";
+import Header from "./componentes/header.jsx";
+import axios from "axios";
 
-export default function App (){
+export default function App() {
+  useEffect(() => {
+    const url = "https://backend-septimos.ctpoba.edu.ar/api";
+    axios
+      .get(url)
+      .then((resp) => {
+        console.log(resp);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
-  const [personas, setPersonas] = useState(personasDefault)
-  const guardar = (persona) => {
-    console.log(persona)
-    
-    let nuevasPersonas = [...personas];
-    nuevasPersonas.push(persona);
-    setPersonas(nuevasPersonas);
-  }
-
-  const eliminar = (persona_id) => {
-    const nuevasPersonas = personas.filter((persona) =>
-      persona.id != persona_id
-    );
-    console.log(nuevasPersonas)
-    setPersonas(nuevasPersonas)
-  }
-  
   return (
-    <div className='App'>
-      
-      <h1>hola eze, soy app punto jota ese equis</h1>
-      
-      <div className="contenedor">
-        
-        <Formulario 
-          guardar={(persona) => guardar(persona)}
-        />
-        
-        <Listado
-          personas={personas}
-          eliminar={(persona_id)=> eliminar(persona_id)}
-        />
-        
-      </div>
-      
+    <div className="App">
+      <Header />
+      <Router>
+        <Switch>
+          <Route path="/nueva">
+            <Formulario />
+          </Route>
+
+          <Route path="/listado">
+            <Listado />
+          </Route>
+
+          <Route path="/">
+            <h1>Hola mundo! Soy APP!</h1>
+          </Route>
+
+          <Route>
+            <h1>Pagina no encontrada - error 404</h1>
+          </Route>
+        </Switch>
+      </Router>
     </div>
-  )
-  
+  );
 }
