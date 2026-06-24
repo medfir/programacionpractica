@@ -6,7 +6,7 @@
 .Header {
     display: flex;
     height: 80px;
-    width: 100vh;
+    width: 100%;
     justify-content: center;
     align-items: center;
     background-color: gray;
@@ -28,18 +28,24 @@
 .formulario {
     display: flex;
     flex-direction: column;
-    flex: 1;
+    width: 50%;
 }
 .formulario form {
     margin: 15px;
     border-radius: 15px;
     background-color: gray;
     padding: 15px 20px;
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .formulario input,
 select,
 button {
+    width: 200px;
+    height: 20px;
+    border-radius: 15px;
     margin: 10px 5px;
 }
 .listado {

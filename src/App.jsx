@@ -3,7 +3,7 @@ import Listado from "./componentes/Listado.jsx";
 import Formulario from "./componentes/Formulario.jsx";
 import "./App.css";
 import { useState, useEffect } from "react";
-import Header from "./componentes/header.jsx";
+import Header from "./componentes/Header.jsx";
 import axios from "axios";
 
 export default function App() {
